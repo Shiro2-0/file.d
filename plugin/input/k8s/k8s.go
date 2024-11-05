@@ -147,7 +147,18 @@ func (p *Plugin) Start(config pipeline.AnyConfig, params *pipeline.InputPluginPa
 	} else {
 		p.params.Controller.SuggestDecoder(decoder.CRI)
 	}
-	p.params.Controller.SetMetaTemplater(p.config.Meta)
+
+	var meta cfg.MetaTemplates
+	if p.config.Meta != nil {
+		meta = p.config.Meta
+	} else {
+		meta = cfg.MetaTemplates{}
+	}
+	meta["k8s_pod"] = "{{ .pod }}"
+	meta["k8s_namespace"] = "{{ .namespace }}"
+	meta["k8s_container"] = "{{ .container }}"
+
+	p.params.Controller.SetMetaTemplater(meta)
 
 	p.fp.Start(&p.config.FileConfig, params)
 }
