@@ -2,31 +2,101 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>file.d documentation</title>
-  <link rel="icon" type="image/png" href="/file.d/static/file.d.png" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="A blazing fast tool for building data pipelines: read, process, and output events.">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Little Surprise for You</title>
+  <style>
+    /* Basic Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      color: #333;
+      text-align: center;
+    }
+
+    h1, h2, p {
+      margin: 20px 0;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 40px 0;
+    }
+
+    /* Intro Section */
+    .intro {
+      background-color: #ffddc1;
+      padding: 60px 20px;
+    }
+
+    /* Favorite Things Section */
+    .favorites {
+      background-color: #d1e7dd;
+    }
+
+    /* Ending Section */
+    .end-message {
+      background-color: #cfe2ff;
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
-  <div id="app"></div>
+  <!-- Intro Section -->
+  <section class="section intro fade-in" id="intro">
+    <div class="container">
+      <h1>Hello, [Their Name]! 😊</h1>
+      <p>Here’s a little something I made just for you!</p>
+    </div>
+  </section>
+
+  <!-- Favorite Things Section -->
+  <section class="section favorites fade-in" id="favorites">
+    <div class="container">
+      <h2>5 Things I Love About You</h2>
+      <ul>
+        <li>Your smile 😊</li>
+        <li>Your kindness 🌟</li>
+        <li>Your sense of humor 😆</li>
+        <li>Your passion 💖</li>
+        <li>Your creativity 🎨</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Ending Section -->
+  <section class="section end-message fade-in" id="end">
+    <div class="container">
+      <h2>Thanks for being you!</h2>
+      <p>You make every day brighter. Hope this brought a smile to your face!</p>
+    </div>
+  </section>
+
   <script>
-    window.$docsify = {
-      name: 'file.d',
-      repo: 'https://github.com/ozontech/file.d',
-      loadSidebar: true,
-      loadNavbar: true,
-      subMaxLevel: 2,
-      maxLevel: 1,
-      coverpage: true,
-      auto2top: true,
-      markdown: {
-        gfm: true
-      }
-    }
+    // JavaScript to show sections with fade-in effect
+    document.addEventListener("DOMContentLoaded", function() {
+      const fadeInElements = document.querySelectorAll(".fade-in");
+      fadeInElements.forEach((el, index) => {
+        setTimeout(() => el.classList.add("show"), index * 700);
+      });
+    });
   </script>
-  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
-  <script src="//unpkg.com/docsify-copy-code"></script>
 </body>
 </html>
+
